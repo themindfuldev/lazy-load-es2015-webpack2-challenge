@@ -73,7 +73,7 @@
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_alertify_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_alertify_js__);
 
 
-class BigWeirdModule {
+class Alert {
   constructor() {
     __WEBPACK_IMPORTED_MODULE_0_alertify_js___default.a
       .okBtn("Sorta")
@@ -84,7 +84,7 @@ class BigWeirdModule {
           // event variable, so you can use
           // it here.
           ev.preventDefault();
-          __WEBPACK_IMPORTED_MODULE_0_alertify_js___default.a.success("Great job! You are positive today!");
+          __WEBPACK_IMPORTED_MODULE_0_alertify_js___default.a.success("Great job! Keep up the great work!");
 
       }, function(ev) {
 
@@ -98,7 +98,7 @@ class BigWeirdModule {
       });
   }
 }
-/* harmony export (immutable) */ exports["a"] = BigWeirdModule;
+/* harmony export (immutable) */ exports["a"] = Alert;
 
 
 /***/ },
@@ -110,7 +110,7 @@ class BigWeirdModule {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_velocity_animate__);
 
 
-class HugeCrazyModule {
+class MerryXmas {
   constructor( selector ) {
     this.el = document.getElementById( selector );
     this.isCollapsed = true;
@@ -133,7 +133,7 @@ class HugeCrazyModule {
     this.isCollapsed = !this.isCollapsed;
   }
 }
-/* harmony export (immutable) */ exports["a"] = HugeCrazyModule;
+/* harmony export (immutable) */ exports["a"] = MerryXmas;
 
 
 /***/ },
@@ -4169,22 +4169,22 @@ module.exports = function(module) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hugeCrazyModule__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bigWeirdModule__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__merryXmas__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__alert__ = __webpack_require__(0);
 // Importing Cat module synchronously
 
 
 
 // Listener to lazy load Zoo
 document.getElementById( 'button' ).addEventListener( 'click', e => {
-  if (!this.myHugeCrazyModule) {
-    this.myHugeCrazyModule = new __WEBPACK_IMPORTED_MODULE_0__hugeCrazyModule__["a" /* default */]( 'effect' );
+  if (!this.merryXmas) {
+    this.merryXmas = new __WEBPACK_IMPORTED_MODULE_0__merryXmas__["a" /* default */]( 'effect' );
   }
-  this.myHugeCrazyModule.animate();
+  this.merryXmas.animate();
 } );
 
 setTimeout(() => {
-  let myBigWeirdModule = new __WEBPACK_IMPORTED_MODULE_1__bigWeirdModule__["a" /* default */]();
+  new __WEBPACK_IMPORTED_MODULE_1__alert__["a" /* default */]();
 }, 5000);
 
 /***/ }

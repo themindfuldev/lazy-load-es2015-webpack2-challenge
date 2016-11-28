@@ -1,6 +1,6 @@
 import alertify from 'alertify.js';
 
-export default class BigWeirdModule {
+export default class Alert {
   constructor() {
     alertify
       .okBtn("Sorta")

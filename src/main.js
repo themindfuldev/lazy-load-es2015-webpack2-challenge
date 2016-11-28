@@ -1,15 +1,15 @@
 // Importing Cat module synchronously
-import HugeCrazyModule from './hugeCrazyModule';
-import BigWeirdModule from './bigWeirdModule'
+import MerryXmas from './merryXmas';
+import Alert from './alert'
 
 // Listener to lazy load Zoo
 document.getElementById( 'button' ).addEventListener( 'click', e => {
-  if (!this.myHugeCrazyModule) {
-    this.myHugeCrazyModule = new HugeCrazyModule( 'effect' );
+  if (!this.merryXmas) {
+    this.merryXmas = new MerryXmas( 'effect' );
   }
-  this.myHugeCrazyModule.animate();
+  this.merryXmas.animate();
 } );
 
 setTimeout(() => {
-  let myBigWeirdModule = new BigWeirdModule();
+  new Alert();
 }, 5000);

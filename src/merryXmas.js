@@ -1,6 +1,6 @@
 import velocity from 'velocity-animate';
 
-export default class HugeCrazyModule {
+export default class MerryXmas {
   constructor( selector ) {
     this.el = document.getElementById( selector );
     this.isCollapsed = true;

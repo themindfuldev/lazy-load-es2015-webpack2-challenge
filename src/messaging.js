@@ -1,6 +1,6 @@
 import alertify from 'alertify.js';
 
-export default class Alert {
+export class Alert {
   constructor() {
     alertify
       .okBtn("Sorta")

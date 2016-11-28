@@ -1,15 +1,15 @@
 // Listener to lazy load Zoo
 document.getElementById( 'button' ).addEventListener( 'click', e => {
-  System.import( './merryXmas' ).then( MerryXmas => {
+  System.import( './animations' ).then( Animations => {
     if (!this.merryXmas) {
-      this.merryXmas = new MerryXmas.default( 'effect' );
+      this.merryXmas = new Animations.MerryXmas( 'effect' );
     }
     this.merryXmas.animate();
   } );
 } );
 
 setTimeout(() => {
-  System.import('./alert').then(Alert => {
-    new Alert.default();
-  })
+  System.import('./messaging').then( Messaging => {
+    new Messaging.Alert();
+  } );
 }, 5000);

@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+  <style>
+    .toggler { width: 500px; position: relative; }
+    #button { padding: .5em 1em; text-decoration: none; margin-top: 10px;}
+    #effect { width: 240px; padding: 0.4em; position: relative; background: #fff; }
+    #effect h3 { margin: 0; padding: 0.4em; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="toggler">
+    <div id="effect" class="ui-widget-content ui-corner-all">
+      <h3 class="ui-widget-header ui-corner-all">Lazy-loading</h3>
+      <ul>
+        <li><b>Lazy loading</b> is a design pattern about deferring the <i>initialization</i> (loading/fetching/allocation) of a <i>resource</i> (code/data/asset) until the point at which it is needed.</li>
+        <li>Its main goal is to improve <i>efficiency</i> when a significant amount of resources is not needed at first.</li>
+        <li>Lazy-loading is targeted to increase performance and save on memory consumption and processing power.</li>
+        <li>It's an <b>EAA pattern</b> from Martin Fowler.</li>
+      </ul>
+    </div>
+  </div>
+  <button id="button" class="ui-state-default ui-corner-all">Merry Xmas</button>
+
+  <script src="target/main.bundle.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+</body>
+</html>

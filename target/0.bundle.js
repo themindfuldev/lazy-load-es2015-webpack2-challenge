@@ -1,5 +1,6 @@
 webpackJsonp([0],[
-/* 0 */
+/* 0 */,
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32,11 +33,10 @@ class Alert {
       });
   }
 }
-/* harmony export (immutable) */ exports["default"] = Alert;
+/* harmony export (immutable) */ exports["Alert"] = Alert;
 
 
 /***/ },
-/* 1 */,
 /* 2 */,
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {

@@ -1,6 +1,5 @@
 webpackJsonp([1],[
-/* 0 */,
-/* 1 */
+/* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31,10 +30,11 @@ class MerryXmas {
     this.isCollapsed = !this.isCollapsed;
   }
 }
-/* harmony export (immutable) */ exports["default"] = MerryXmas;
+/* harmony export (immutable) */ exports["MerryXmas"] = MerryXmas;
 
 
 /***/ },
+/* 1 */,
 /* 2 */,
 /* 3 */,
 /* 4 */

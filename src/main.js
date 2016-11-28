@@ -1,4 +1,4 @@
-// Listener to lazy load Zoo
+// Listener to lazy load Merry Xmas
 document.getElementById( 'button' ).addEventListener( 'click', e => {
   System.import( './animations' ).then( Animations => {
     if (!this.merryXmas) {
@@ -8,6 +8,7 @@ document.getElementById( 'button' ).addEventListener( 'click', e => {
   } );
 } );
 
+// Timeout to lazy load Alert
 setTimeout(() => {
   System.import('./messaging').then( Messaging => {
     new Messaging.Alert();

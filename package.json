@@ -23,6 +23,7 @@
     "webpack": "2.1.0-beta.27"
   },
   "dependencies": {
+    "alertify.js": "^1.0.12",
     "velocity-animate": "^1.3.1"
   }
 }

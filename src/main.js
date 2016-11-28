@@ -1,15 +1,15 @@
 // Importing Cat module synchronously
-import * as MerryXmas from './merryXmas';
-import * as Alert from './alert'
+import { MerryXmas } from './animations';
+import { Alert } from './messaging'
 
 // Listener to lazy load Zoo
 document.getElementById( 'button' ).addEventListener( 'click', e => {
   if (!this.merryXmas) {
-    this.merryXmas = new MerryXmas.default( 'effect' );
+    this.merryXmas = new MerryXmas( 'effect' );
   }
   this.merryXmas.animate();
 } );
 
 setTimeout(() => {
-  new Alert.default();
+  new Alert();
 }, 5000);

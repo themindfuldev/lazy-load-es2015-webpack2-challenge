@@ -69,6 +69,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_velocity_animate__);
+
+
+class MerryXmas {
+  constructor( selector ) {
+    this.el = document.getElementById( selector );
+    this.isCollapsed = true;
+  }
+
+  animate() {
+    if ( this.isCollapsed ) {
+      __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default()(this.el, {
+        backgroundColor: "#aa0000",
+        color: "#fff",
+        width: 500
+      }, { duration: 1000 } );
+    } else {
+      __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default()(this.el, {
+        backgroundColor: "#fff",
+        color: "#000",
+        width: 240
+      }, { duration: 1000 } );
+    }
+    this.isCollapsed = !this.isCollapsed;
+  }
+}
+/* harmony export (immutable) */ exports["a"] = MerryXmas;
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_alertify_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_alertify_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_alertify_js__);
 
@@ -99,41 +134,6 @@ class Alert {
   }
 }
 /* harmony export (immutable) */ exports["a"] = Alert;
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_velocity_animate__);
-
-
-class MerryXmas {
-  constructor( selector ) {
-    this.el = document.getElementById( selector );
-    this.isCollapsed = true;
-  }
-
-  animate() {
-    if ( this.isCollapsed ) {
-      __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default()(this.el, {
-        backgroundColor: "#aa0000",
-        color: "#fff",
-        width: 500
-      }, { duration: 1000 } );
-    } else {
-      __WEBPACK_IMPORTED_MODULE_0_velocity_animate___default()(this.el, {
-        backgroundColor: "#fff",
-        color: "#000",
-        width: 240
-      }, { duration: 1000 } );
-    }
-    this.isCollapsed = !this.isCollapsed;
-  }
-}
-/* harmony export (immutable) */ exports["a"] = MerryXmas;
 
 
 /***/ },
@@ -4169,8 +4169,8 @@ module.exports = function(module) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__merryXmas__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__alert__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__messaging__ = __webpack_require__(1);
 // Importing Cat module synchronously
 
 
@@ -4178,13 +4178,13 @@ module.exports = function(module) {
 // Listener to lazy load Zoo
 document.getElementById( 'button' ).addEventListener( 'click', e => {
   if (!this.merryXmas) {
-    this.merryXmas = new __WEBPACK_IMPORTED_MODULE_0__merryXmas__["a" /* default */]( 'effect' );
+    this.merryXmas = new __WEBPACK_IMPORTED_MODULE_0__animations__["a" /* MerryXmas */]( 'effect' );
   }
   this.merryXmas.animate();
 } );
 
 setTimeout(() => {
-  new __WEBPACK_IMPORTED_MODULE_1__alert__["a" /* default */]();
+  new __WEBPACK_IMPORTED_MODULE_1__messaging__["a" /* Alert */]();
 }, 5000);
 
 /***/ }

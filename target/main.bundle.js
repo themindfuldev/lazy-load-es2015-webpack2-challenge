@@ -138,7 +138,7 @@
 /***/ 2:
 /***/ function(module, exports, __webpack_require__) {
 
-// Listener to lazy load Zoo
+// Listener to lazy load Merry Xmas
 document.getElementById( 'button' ).addEventListener( 'click', e => {
   __webpack_require__.e/* System.import */(1).then(__webpack_require__.bind(null, 0)).then( Animations => {
     if (!this.merryXmas) {
@@ -148,6 +148,7 @@ document.getElementById( 'button' ).addEventListener( 'click', e => {
   } );
 } );
 
+// Timeout to lazy load Alert
 setTimeout(() => {
   __webpack_require__.e/* System.import */(0).then(__webpack_require__.bind(null, 1)).then( Messaging => {
     new Messaging.Alert();

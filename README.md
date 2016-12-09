@@ -12,7 +12,7 @@ Since webpack 2 is not officially released, we will install the version 2.1.0-be
 ```
 npm install
 npm run build
-http-server
+./node_modules/http-server/bin/http-server
 open http://127.0.0.1:8080/
 ```
 

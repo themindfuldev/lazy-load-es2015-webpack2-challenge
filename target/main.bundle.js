@@ -33,16 +33,18 @@
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 
-/******/ 	// identity function for calling harmory imports with the correct context
+/******/ 	// identity function for calling harmony imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
 
-/******/ 	// define getter function for harmory exports
+/******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		Object.defineProperty(exports, name, {
-/******/ 			configurable: false,
-/******/ 			enumerable: true,
-/******/ 			get: getter
-/******/ 		});
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
 /******/ 	};
 
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -66,7 +68,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_velocity_animate__ = __webpack_require__(3);
@@ -96,12 +98,12 @@ class MerryXmas {
     this.isCollapsed = !this.isCollapsed;
   }
 }
-/* harmony export (immutable) */ exports["a"] = MerryXmas;
+/* harmony export (immutable) */ __webpack_exports__["a"] = MerryXmas;
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_alertify_js__ = __webpack_require__(2);
@@ -133,21 +135,22 @@ class Alert {
       });
   }
 }
-/* harmony export (immutable) */ exports["a"] = Alert;
+/* harmony export (immutable) */ __webpack_exports__["a"] = Alert;
 
 
-/***/ },
+/***/ }),
 /* 2 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;!function(){"use strict";function t(){var t={parent:document.body,version:"1.0.12",defaultOkLabel:"Ok",okLabel:"Ok",defaultCancelLabel:"Cancel",cancelLabel:"Cancel",defaultMaxLogItems:2,maxLogItems:2,promptValue:"",promptPlaceholder:"",closeLogOnClick:!1,closeLogOnClickDefault:!1,delay:5e3,defaultDelay:5e3,logContainerClass:"alertify-logs",logContainerDefaultClass:"alertify-logs",dialogs:{buttons:{holder:"<nav>{{buttons}}</nav>",ok:"<button class='ok' tabindex='1'>{{ok}}</button>",cancel:"<button class='cancel' tabindex='2'>{{cancel}}</button>"},input:"<input type='text'>",message:"<p class='msg'>{{message}}</p>",log:"<div class='{{class}}'>{{message}}</div>"},defaultDialogs:{buttons:{holder:"<nav>{{buttons}}</nav>",ok:"<button class='ok' tabindex='1'>{{ok}}</button>",cancel:"<button class='cancel' tabindex='2'>{{cancel}}</button>"},input:"<input type='text'>",message:"<p class='msg'>{{message}}</p>",log:"<div class='{{class}}'>{{message}}</div>"},build:function(t){var e=this.dialogs.buttons.ok,o="<div class='dialog'><div>"+this.dialogs.message.replace("{{message}}",t.message);return"confirm"!==t.type&&"prompt"!==t.type||(e=this.dialogs.buttons.cancel+this.dialogs.buttons.ok),"prompt"===t.type&&(o+=this.dialogs.input),o=(o+this.dialogs.buttons.holder+"</div></div>").replace("{{buttons}}",e).replace("{{ok}}",this.okLabel).replace("{{cancel}}",this.cancelLabel)},setCloseLogOnClick:function(t){this.closeLogOnClick=!!t},close:function(t,e){this.closeLogOnClick&&t.addEventListener("click",function(){o(t)}),e=e&&!isNaN(+e)?+e:this.delay,0>e?o(t):e>0&&setTimeout(function(){o(t)},e)},dialog:function(t,e,o,n){return this.setup({type:e,message:t,onOkay:o,onCancel:n})},log:function(t,e,o){var n=document.querySelectorAll(".alertify-logs > div");if(n){var i=n.length-this.maxLogItems;if(i>=0)for(var a=0,l=i+1;l>a;a++)this.close(n[a],-1)}this.notify(t,e,o)},setLogPosition:function(t){this.logContainerClass="alertify-logs "+t},setupLogContainer:function(){var t=document.querySelector(".alertify-logs"),e=this.logContainerClass;return t||(t=document.createElement("div"),t.className=e,this.parent.appendChild(t)),t.className!==e&&(t.className=e),t},notify:function(e,o,n){var i=this.setupLogContainer(),a=document.createElement("div");a.className=o||"default",t.logTemplateMethod?a.innerHTML=t.logTemplateMethod(e):a.innerHTML=e,"function"==typeof n&&a.addEventListener("click",n),i.appendChild(a),setTimeout(function(){a.className+=" show"},10),this.close(a,this.delay)},setup:function(t){function e(e){"function"!=typeof e&&(e=function(){}),i&&i.addEventListener("click",function(i){t.onOkay&&"function"==typeof t.onOkay&&(l?t.onOkay(l.value,i):t.onOkay(i)),e(l?{buttonClicked:"ok",inputValue:l.value,event:i}:{buttonClicked:"ok",event:i}),o(n)}),a&&a.addEventListener("click",function(i){t.onCancel&&"function"==typeof t.onCancel&&t.onCancel(i),e({buttonClicked:"cancel",event:i}),o(n)}),l&&l.addEventListener("keyup",function(t){13===t.which&&i.click()})}var n=document.createElement("div");n.className="alertify hide",n.innerHTML=this.build(t);var i=n.querySelector(".ok"),a=n.querySelector(".cancel"),l=n.querySelector("input"),s=n.querySelector("label");l&&("string"==typeof this.promptPlaceholder&&(s?s.textContent=this.promptPlaceholder:l.placeholder=this.promptPlaceholder),"string"==typeof this.promptValue&&(l.value=this.promptValue));var r;return"function"==typeof Promise?r=new Promise(e):e(),this.parent.appendChild(n),setTimeout(function(){n.classList.remove("hide"),l&&t.type&&"prompt"===t.type?(l.select(),l.focus()):i&&i.focus()},100),r},okBtn:function(t){return this.okLabel=t,this},setDelay:function(t){return t=t||0,this.delay=isNaN(t)?this.defaultDelay:parseInt(t,10),this},cancelBtn:function(t){return this.cancelLabel=t,this},setMaxLogItems:function(t){this.maxLogItems=parseInt(t||this.defaultMaxLogItems)},theme:function(t){switch(t.toLowerCase()){case"bootstrap":this.dialogs.buttons.ok="<button class='ok btn btn-primary' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel btn btn-default' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<input type='text' class='form-control'>";break;case"purecss":this.dialogs.buttons.ok="<button class='ok pure-button' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel pure-button' tabindex='2'>{{cancel}}</button>";break;case"mdl":case"material-design-light":this.dialogs.buttons.ok="<button class='ok mdl-button mdl-js-button mdl-js-ripple-effect'  tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel mdl-button mdl-js-button mdl-js-ripple-effect' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<div class='mdl-textfield mdl-js-textfield'><input class='mdl-textfield__input'><label class='md-textfield__label'></label></div>";break;case"angular-material":this.dialogs.buttons.ok="<button class='ok md-primary md-button' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel md-button' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<div layout='column'><md-input-container md-no-float><input type='text'></md-input-container></div>";break;case"default":default:this.dialogs.buttons.ok=this.defaultDialogs.buttons.ok,this.dialogs.buttons.cancel=this.defaultDialogs.buttons.cancel,this.dialogs.input=this.defaultDialogs.input}},reset:function(){this.parent=document.body,this.theme("default"),this.okBtn(this.defaultOkLabel),this.cancelBtn(this.defaultCancelLabel),this.setMaxLogItems(),this.promptValue="",this.promptPlaceholder="",this.delay=this.defaultDelay,this.setCloseLogOnClick(this.closeLogOnClickDefault),this.setLogPosition("bottom left"),this.logTemplateMethod=null},injectCSS:function(){if(!document.querySelector("#alertifyCSS")){var t=document.getElementsByTagName("head")[0],e=document.createElement("style");e.type="text/css",e.id="alertifyCSS",e.innerHTML=".alertify-logs>*{padding:12px 24px;color:#fff;box-shadow:0 2px 5px 0 rgba(0,0,0,.2);border-radius:1px}.alertify-logs>*,.alertify-logs>.default{background:rgba(0,0,0,.8)}.alertify-logs>.error{background:rgba(244,67,54,.8)}.alertify-logs>.success{background:rgba(76,175,80,.9)}.alertify{position:fixed;background-color:rgba(0,0,0,.3);left:0;right:0;top:0;bottom:0;width:100%;height:100%;z-index:1}.alertify.hide{opacity:0;pointer-events:none}.alertify,.alertify.show{box-sizing:border-box;transition:all .33s cubic-bezier(.25,.8,.25,1)}.alertify,.alertify *{box-sizing:border-box}.alertify .dialog{padding:12px}.alertify .alert,.alertify .dialog{width:100%;margin:0 auto;position:relative;top:50%;transform:translateY(-50%)}.alertify .alert>*,.alertify .dialog>*{width:400px;max-width:95%;margin:0 auto;text-align:center;padding:12px;background:#fff;box-shadow:0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084)}.alertify .alert .msg,.alertify .dialog .msg{padding:12px;margin-bottom:12px;margin:0;text-align:left}.alertify .alert input:not(.form-control),.alertify .dialog input:not(.form-control){margin-bottom:15px;width:100%;font-size:100%;padding:12px}.alertify .alert input:not(.form-control):focus,.alertify .dialog input:not(.form-control):focus{outline-offset:-2px}.alertify .alert nav,.alertify .dialog nav{text-align:right}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button),.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button){background:transparent;box-sizing:border-box;color:rgba(0,0,0,.87);position:relative;outline:0;border:0;display:inline-block;-ms-flex-align:center;-ms-grid-row-align:center;align-items:center;padding:0 6px;margin:6px 8px;line-height:36px;min-height:36px;white-space:nowrap;min-width:88px;text-align:center;text-transform:uppercase;font-size:14px;text-decoration:none;cursor:pointer;border:1px solid transparent;border-radius:2px}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active,.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover{background-color:rgba(0,0,0,.05)}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus{border:1px solid rgba(0,0,0,.1)}.alertify .alert nav button.btn,.alertify .dialog nav button.btn{margin:6px 4px}.alertify-logs{position:fixed;z-index:1}.alertify-logs.bottom,.alertify-logs:not(.top){bottom:16px}.alertify-logs.left,.alertify-logs:not(.right){left:16px}.alertify-logs.left>*,.alertify-logs:not(.right)>*{float:left;transform:translateZ(0);height:auto}.alertify-logs.left>.show,.alertify-logs:not(.right)>.show{left:0}.alertify-logs.left>*,.alertify-logs.left>.hide,.alertify-logs:not(.right)>*,.alertify-logs:not(.right)>.hide{left:-110%}.alertify-logs.right{right:16px}.alertify-logs.right>*{float:right;transform:translateZ(0)}.alertify-logs.right>.show{right:0;opacity:1}.alertify-logs.right>*,.alertify-logs.right>.hide{right:-110%;opacity:0}.alertify-logs.top{top:0}.alertify-logs>*{box-sizing:border-box;transition:all .4s cubic-bezier(.25,.8,.25,1);position:relative;clear:both;backface-visibility:hidden;perspective:1000;max-height:0;margin:0;padding:0;overflow:hidden;opacity:0;pointer-events:none}.alertify-logs>.show{margin-top:12px;opacity:1;max-height:1000px;padding:12px;pointer-events:auto}",t.insertBefore(e,t.firstChild)}},removeCSS:function(){var t=document.querySelector("#alertifyCSS");t&&t.parentNode&&t.parentNode.removeChild(t)}};return t.injectCSS(),{_$$alertify:t,parent:function(e){t.parent=e},reset:function(){return t.reset(),this},alert:function(e,o,n){return t.dialog(e,"alert",o,n)||this},confirm:function(e,o,n){return t.dialog(e,"confirm",o,n)||this},prompt:function(e,o,n){return t.dialog(e,"prompt",o,n)||this},log:function(e,o){return t.log(e,"default",o),this},theme:function(e){return t.theme(e),this},success:function(e,o){return t.log(e,"success",o),this},error:function(e,o){return t.log(e,"error",o),this},cancelBtn:function(e){return t.cancelBtn(e),this},okBtn:function(e){return t.okBtn(e),this},delay:function(e){return t.setDelay(e),this},placeholder:function(e){return t.promptPlaceholder=e,this},defaultValue:function(e){return t.promptValue=e,this},maxLogItems:function(e){return t.setMaxLogItems(e),this},closeLogOnClick:function(e){return t.setCloseLogOnClick(!!e),this},logPosition:function(e){return t.setLogPosition(e||""),this},setLogTemplate:function(e){return t.logTemplateMethod=e,this},clearLogs:function(){return t.setupLogContainer().innerHTML="",this},version:t.version}}var e=500,o=function(t){if(t){var o=function(){t&&t.parentNode&&t.parentNode.removeChild(t)};t.classList.remove("show"),t.classList.add("hide"),t.addEventListener("transitionend",o),setTimeout(o,e)}};if("undefined"!=typeof module&&module&&module.exports){module.exports=function(){return new t};var n=new t;for(var i in n)module.exports[i]=n[i]}else true?!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return new t}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.alertify=new t}();
+/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_RESULT__;!function(){"use strict";function t(){var t={parent:document.body,version:"1.0.12",defaultOkLabel:"Ok",okLabel:"Ok",defaultCancelLabel:"Cancel",cancelLabel:"Cancel",defaultMaxLogItems:2,maxLogItems:2,promptValue:"",promptPlaceholder:"",closeLogOnClick:!1,closeLogOnClickDefault:!1,delay:5e3,defaultDelay:5e3,logContainerClass:"alertify-logs",logContainerDefaultClass:"alertify-logs",dialogs:{buttons:{holder:"<nav>{{buttons}}</nav>",ok:"<button class='ok' tabindex='1'>{{ok}}</button>",cancel:"<button class='cancel' tabindex='2'>{{cancel}}</button>"},input:"<input type='text'>",message:"<p class='msg'>{{message}}</p>",log:"<div class='{{class}}'>{{message}}</div>"},defaultDialogs:{buttons:{holder:"<nav>{{buttons}}</nav>",ok:"<button class='ok' tabindex='1'>{{ok}}</button>",cancel:"<button class='cancel' tabindex='2'>{{cancel}}</button>"},input:"<input type='text'>",message:"<p class='msg'>{{message}}</p>",log:"<div class='{{class}}'>{{message}}</div>"},build:function(t){var e=this.dialogs.buttons.ok,o="<div class='dialog'><div>"+this.dialogs.message.replace("{{message}}",t.message);return"confirm"!==t.type&&"prompt"!==t.type||(e=this.dialogs.buttons.cancel+this.dialogs.buttons.ok),"prompt"===t.type&&(o+=this.dialogs.input),o=(o+this.dialogs.buttons.holder+"</div></div>").replace("{{buttons}}",e).replace("{{ok}}",this.okLabel).replace("{{cancel}}",this.cancelLabel)},setCloseLogOnClick:function(t){this.closeLogOnClick=!!t},close:function(t,e){this.closeLogOnClick&&t.addEventListener("click",function(){o(t)}),e=e&&!isNaN(+e)?+e:this.delay,0>e?o(t):e>0&&setTimeout(function(){o(t)},e)},dialog:function(t,e,o,n){return this.setup({type:e,message:t,onOkay:o,onCancel:n})},log:function(t,e,o){var n=document.querySelectorAll(".alertify-logs > div");if(n){var i=n.length-this.maxLogItems;if(i>=0)for(var a=0,l=i+1;l>a;a++)this.close(n[a],-1)}this.notify(t,e,o)},setLogPosition:function(t){this.logContainerClass="alertify-logs "+t},setupLogContainer:function(){var t=document.querySelector(".alertify-logs"),e=this.logContainerClass;return t||(t=document.createElement("div"),t.className=e,this.parent.appendChild(t)),t.className!==e&&(t.className=e),t},notify:function(e,o,n){var i=this.setupLogContainer(),a=document.createElement("div");a.className=o||"default",t.logTemplateMethod?a.innerHTML=t.logTemplateMethod(e):a.innerHTML=e,"function"==typeof n&&a.addEventListener("click",n),i.appendChild(a),setTimeout(function(){a.className+=" show"},10),this.close(a,this.delay)},setup:function(t){function e(e){"function"!=typeof e&&(e=function(){}),i&&i.addEventListener("click",function(i){t.onOkay&&"function"==typeof t.onOkay&&(l?t.onOkay(l.value,i):t.onOkay(i)),e(l?{buttonClicked:"ok",inputValue:l.value,event:i}:{buttonClicked:"ok",event:i}),o(n)}),a&&a.addEventListener("click",function(i){t.onCancel&&"function"==typeof t.onCancel&&t.onCancel(i),e({buttonClicked:"cancel",event:i}),o(n)}),l&&l.addEventListener("keyup",function(t){13===t.which&&i.click()})}var n=document.createElement("div");n.className="alertify hide",n.innerHTML=this.build(t);var i=n.querySelector(".ok"),a=n.querySelector(".cancel"),l=n.querySelector("input"),s=n.querySelector("label");l&&("string"==typeof this.promptPlaceholder&&(s?s.textContent=this.promptPlaceholder:l.placeholder=this.promptPlaceholder),"string"==typeof this.promptValue&&(l.value=this.promptValue));var r;return"function"==typeof Promise?r=new Promise(e):e(),this.parent.appendChild(n),setTimeout(function(){n.classList.remove("hide"),l&&t.type&&"prompt"===t.type?(l.select(),l.focus()):i&&i.focus()},100),r},okBtn:function(t){return this.okLabel=t,this},setDelay:function(t){return t=t||0,this.delay=isNaN(t)?this.defaultDelay:parseInt(t,10),this},cancelBtn:function(t){return this.cancelLabel=t,this},setMaxLogItems:function(t){this.maxLogItems=parseInt(t||this.defaultMaxLogItems)},theme:function(t){switch(t.toLowerCase()){case"bootstrap":this.dialogs.buttons.ok="<button class='ok btn btn-primary' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel btn btn-default' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<input type='text' class='form-control'>";break;case"purecss":this.dialogs.buttons.ok="<button class='ok pure-button' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel pure-button' tabindex='2'>{{cancel}}</button>";break;case"mdl":case"material-design-light":this.dialogs.buttons.ok="<button class='ok mdl-button mdl-js-button mdl-js-ripple-effect'  tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel mdl-button mdl-js-button mdl-js-ripple-effect' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<div class='mdl-textfield mdl-js-textfield'><input class='mdl-textfield__input'><label class='md-textfield__label'></label></div>";break;case"angular-material":this.dialogs.buttons.ok="<button class='ok md-primary md-button' tabindex='1'>{{ok}}</button>",this.dialogs.buttons.cancel="<button class='cancel md-button' tabindex='2'>{{cancel}}</button>",this.dialogs.input="<div layout='column'><md-input-container md-no-float><input type='text'></md-input-container></div>";break;case"default":default:this.dialogs.buttons.ok=this.defaultDialogs.buttons.ok,this.dialogs.buttons.cancel=this.defaultDialogs.buttons.cancel,this.dialogs.input=this.defaultDialogs.input}},reset:function(){this.parent=document.body,this.theme("default"),this.okBtn(this.defaultOkLabel),this.cancelBtn(this.defaultCancelLabel),this.setMaxLogItems(),this.promptValue="",this.promptPlaceholder="",this.delay=this.defaultDelay,this.setCloseLogOnClick(this.closeLogOnClickDefault),this.setLogPosition("bottom left"),this.logTemplateMethod=null},injectCSS:function(){if(!document.querySelector("#alertifyCSS")){var t=document.getElementsByTagName("head")[0],e=document.createElement("style");e.type="text/css",e.id="alertifyCSS",e.innerHTML=".alertify-logs>*{padding:12px 24px;color:#fff;box-shadow:0 2px 5px 0 rgba(0,0,0,.2);border-radius:1px}.alertify-logs>*,.alertify-logs>.default{background:rgba(0,0,0,.8)}.alertify-logs>.error{background:rgba(244,67,54,.8)}.alertify-logs>.success{background:rgba(76,175,80,.9)}.alertify{position:fixed;background-color:rgba(0,0,0,.3);left:0;right:0;top:0;bottom:0;width:100%;height:100%;z-index:1}.alertify.hide{opacity:0;pointer-events:none}.alertify,.alertify.show{box-sizing:border-box;transition:all .33s cubic-bezier(.25,.8,.25,1)}.alertify,.alertify *{box-sizing:border-box}.alertify .dialog{padding:12px}.alertify .alert,.alertify .dialog{width:100%;margin:0 auto;position:relative;top:50%;transform:translateY(-50%)}.alertify .alert>*,.alertify .dialog>*{width:400px;max-width:95%;margin:0 auto;text-align:center;padding:12px;background:#fff;box-shadow:0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084)}.alertify .alert .msg,.alertify .dialog .msg{padding:12px;margin-bottom:12px;margin:0;text-align:left}.alertify .alert input:not(.form-control),.alertify .dialog input:not(.form-control){margin-bottom:15px;width:100%;font-size:100%;padding:12px}.alertify .alert input:not(.form-control):focus,.alertify .dialog input:not(.form-control):focus{outline-offset:-2px}.alertify .alert nav,.alertify .dialog nav{text-align:right}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button),.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button){background:transparent;box-sizing:border-box;color:rgba(0,0,0,.87);position:relative;outline:0;border:0;display:inline-block;-ms-flex-align:center;-ms-grid-row-align:center;align-items:center;padding:0 6px;margin:6px 8px;line-height:36px;min-height:36px;white-space:nowrap;min-width:88px;text-align:center;text-transform:uppercase;font-size:14px;text-decoration:none;cursor:pointer;border:1px solid transparent;border-radius:2px}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active,.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):active,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):hover{background-color:rgba(0,0,0,.05)}.alertify .alert nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus,.alertify .dialog nav button:not(.btn):not(.pure-button):not(.md-button):not(.mdl-button):focus{border:1px solid rgba(0,0,0,.1)}.alertify .alert nav button.btn,.alertify .dialog nav button.btn{margin:6px 4px}.alertify-logs{position:fixed;z-index:1}.alertify-logs.bottom,.alertify-logs:not(.top){bottom:16px}.alertify-logs.left,.alertify-logs:not(.right){left:16px}.alertify-logs.left>*,.alertify-logs:not(.right)>*{float:left;transform:translateZ(0);height:auto}.alertify-logs.left>.show,.alertify-logs:not(.right)>.show{left:0}.alertify-logs.left>*,.alertify-logs.left>.hide,.alertify-logs:not(.right)>*,.alertify-logs:not(.right)>.hide{left:-110%}.alertify-logs.right{right:16px}.alertify-logs.right>*{float:right;transform:translateZ(0)}.alertify-logs.right>.show{right:0;opacity:1}.alertify-logs.right>*,.alertify-logs.right>.hide{right:-110%;opacity:0}.alertify-logs.top{top:0}.alertify-logs>*{box-sizing:border-box;transition:all .4s cubic-bezier(.25,.8,.25,1);position:relative;clear:both;backface-visibility:hidden;perspective:1000;max-height:0;margin:0;padding:0;overflow:hidden;opacity:0;pointer-events:none}.alertify-logs>.show{margin-top:12px;opacity:1;max-height:1000px;padding:12px;pointer-events:auto}",t.insertBefore(e,t.firstChild)}},removeCSS:function(){var t=document.querySelector("#alertifyCSS");t&&t.parentNode&&t.parentNode.removeChild(t)}};return t.injectCSS(),{_$$alertify:t,parent:function(e){t.parent=e},reset:function(){return t.reset(),this},alert:function(e,o,n){return t.dialog(e,"alert",o,n)||this},confirm:function(e,o,n){return t.dialog(e,"confirm",o,n)||this},prompt:function(e,o,n){return t.dialog(e,"prompt",o,n)||this},log:function(e,o){return t.log(e,"default",o),this},theme:function(e){return t.theme(e),this},success:function(e,o){return t.log(e,"success",o),this},error:function(e,o){return t.log(e,"error",o),this},cancelBtn:function(e){return t.cancelBtn(e),this},okBtn:function(e){return t.okBtn(e),this},delay:function(e){return t.setDelay(e),this},placeholder:function(e){return t.promptPlaceholder=e,this},defaultValue:function(e){return t.promptValue=e,this},maxLogItems:function(e){return t.setMaxLogItems(e),this},closeLogOnClick:function(e){return t.setCloseLogOnClick(!!e),this},logPosition:function(e){return t.setLogPosition(e||""),this},setLogTemplate:function(e){return t.logTemplateMethod=e,this},clearLogs:function(){return t.setupLogContainer().innerHTML="",this},version:t.version}}var e=500,o=function(t){if(t){var o=function(){t&&t.parentNode&&t.parentNode.removeChild(t)};t.classList.remove("show"),t.classList.add("hide"),t.addEventListener("transitionend",o),setTimeout(o,e)}};if("undefined"!=typeof module&&module&&module.exports){module.exports=function(){return new t};var n=new t;for(var i in n)module.exports[i]=n[i]}else true?!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return new t}.call(exports, __webpack_require__, exports, module),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):window.alertify=new t}();
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)(module)))
 
-/***/ },
+/***/ }),
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS.org (1.3.1). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS.org (1.4.2). (C) 2014 Julian Shapiro. MIT @license: en.wikipedia.org/wiki/MIT_License */
 
 /*************************
  Velocity jQuery Shim
@@ -509,9 +512,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		position: function() {
 			/* jQuery */
 			function offsetParentFn(elem) {
-				var offsetParent = elem.offsetParent || document;
+				var offsetParent = elem.offsetParent;
 
-				while (offsetParent && (offsetParent.nodeType.toLowerCase !== "html" && offsetParent.style.position === "static")) {
+				while (offsetParent && offsetParent.nodeName.toLowerCase() !== "html" && offsetParent.style && offsetParent.style.position === "static") {
 					offsetParent = offsetParent.offsetParent;
 				}
 
@@ -576,7 +579,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		module.exports = factory();
 		/* AMD module. */
 	} else if (true) {
-		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		!(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		/* Browser globals. */
 	} else {
 		factory();
@@ -644,6 +651,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			};
 		})();
 
+		var performance = (function() {
+			var perf = window.performance || {};
+
+			if (!Object.prototype.hasOwnProperty.call(perf, "now")) {
+				var nowOffset = perf.timing && perf.timing.domComplete ? perf.timing.domComplete : (new Date()).getTime();
+
+				perf.now = function() {
+					return (new Date()).getTime() - nowOffset;
+				};
+			}
+			return perf;
+		})();
+
 		/* Array compacting. Copyright Lo-Dash. MIT License: https://github.com/lodash/lodash/blob/master/LICENSE.txt */
 		function compactSparseArray(array) {
 			var index = -1,
@@ -661,10 +681,34 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			return result;
 		}
 
+		var _slice = (function() {
+			var slice = Array.prototype.slice;
+
+			try {
+				// Can't be used with DOM elements in IE < 9
+				slice.call(document.documentElement);
+			} catch (e) { // Fails in IE < 9
+				// This will work for genuine arrays, array-like objects, 
+				// NamedNodeMap (attributes, entities, notations),
+				// NodeList (e.g., getElementsByTagName), HTMLCollection (e.g., childNodes),
+				// and will not fail on other DOM objects (as do DOM elements in IE < 9)
+				slice = function() {
+					var i = this.length,
+							clone = [];
+
+					while (--i > 0) {
+						clone[i] = this[i];
+					}
+					return cloned;
+				};
+			}
+			return slice;
+		})(); // TODO: IE8, Cache of Array.prototype.slice that works on IE8
+
 		function sanitizeElements(elements) {
 			/* Unwrap jQuery/Zepto objects. */
 			if (Type.isWrapped(elements)) {
-				elements = [].slice.call(elements);
+				elements = _slice.call(elements);
 				/* Wrap a single element in an array so that $.each() can iterate with the element instead of its node's children. */
 			} else if (Type.isNode(elements)) {
 				elements = [elements];
@@ -674,6 +718,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		}
 
 		var Type = {
+			isNumber: function(variable) {
+				return (typeof variable === "number");
+			},
 			isString: function(variable) {
 				return (typeof variable === "string");
 			},
@@ -686,16 +733,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			isNode: function(variable) {
 				return variable && variable.nodeType;
 			},
-			/* Copyright Martin Bohm. MIT License: https://gist.github.com/Tomalak/818a78a226a0738eaade */
-			isNodeList: function(variable) {
-				return typeof variable === "object" &&
-						/^\[object (HTMLCollection|NodeList|Object)\]$/.test(Object.prototype.toString.call(variable)) &&
-						variable.length !== undefined &&
-						(variable.length === 0 || (typeof variable[0] === "object" && variable[0].nodeType > 0));
-			},
-			/* Determine if variable is a wrapped jQuery or Zepto element. */
+			/* Determine if variable is an array-like wrapped jQuery, Zepto or similar element, or even a NodeList etc. */
+			/* NOTE: HTMLFormElements also have a length. */
 			isWrapped: function(variable) {
-				return variable && (variable.jquery || (window.Zepto && window.Zepto.zepto.isZ(variable)));
+				return variable
+						&& Type.isNumber(variable.length)
+						&& !Type.isString(variable)
+						&& !Type.isFunction(variable)
+						&& !Type.isNode(variable)
+						&& (variable.length === 0 || Type.isNode(variable[0]));
 			},
 			isSVG: function(variable) {
 				return window.SVGElement && (variable instanceof window.SVGElement);
@@ -768,15 +814,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				/* Keep track of whether our RAF tick is running. */
 				isTicking: false,
 				/* Container for every in-progress call to Velocity. */
-				calls: []
+				calls: [],
+				delayedElements: {
+					count: 0
+				}
 			},
 			/* Velocity's custom CSS stack. Made global for unit testing. */
-			CSS: { /* Defined below. */},
+			CSS: {/* Defined below. */},
 			/* A shim of the jQuery utility functions used by Velocity -- provided by Velocity's optional jQuery shim. */
 			Utilities: $,
 			/* Container for the user's custom animation redirects that are referenced by name in place of the properties map argument. */
-			Redirects: { /* Manually registered by the user. */},
-			Easings: { /* Defined below. */},
+			Redirects: {/* Manually registered by the user. */},
+			Easings: {/* Defined below. */},
 			/* Attempt to use ES6 Promises by default. Users can override this with a third-party promises library. */
 			Promise: window.Promise,
 			/* Velocity option defaults, which can be overriden by the user. */
@@ -793,7 +842,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				delay: false,
 				mobileHA: true,
 				/* Advanced: Set to false to prevent property values from being cached between consecutive Velocity-initiated chain calls. */
-				_cacheValues: true
+				_cacheValues: true,
+				/* Advanced: Set to false if the promise should always resolve on empty element lists. */
+				promiseRejectEmpty: true
 			},
 			/* A design goal of Velocity is to cache data wherever possible in order to avoid DOM requerying. Accordingly, each element has a data cache. */
 			init: function(element) {
@@ -820,9 +871,66 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			hook: null, /* Defined below. */
 			/* Velocity-wide animation time remapping for testing purposes. */
 			mock: false,
-			version: {major: 1, minor: 3, patch: 1},
+			version: {major: 1, minor: 4, patch: 2},
 			/* Set to 1 or 2 (most verbose) to output debug info to console. */
-			debug: false
+			debug: false,
+			/* Use rAF high resolution timestamp when available */
+			timestamp: true,
+			/* Pause all animations */
+			pauseAll: function(queueName) {
+				var currentTime = (new Date()).getTime();
+
+				$.each(Velocity.State.calls, function(i, activeCall) {
+
+					if (activeCall) {
+
+						/* If we have a queueName and this call is not on that queue, skip */
+						if (queueName !== undefined && ((activeCall[2].queue !== queueName) || (activeCall[2].queue === false))) {
+							return true;
+						}
+
+						/* Set call to paused */
+						activeCall[5] = {
+							resume: false
+						};
+					}
+				});
+
+				/* Pause timers on any currently delayed calls */
+				$.each(Velocity.State.delayedElements, function(k, element) {
+					if (!element) {
+						return;
+					}
+					pauseDelayOnElement(element, currentTime);
+				});
+			},
+			/* Resume all animations */
+			resumeAll: function(queueName) {
+				var currentTime = (new Date()).getTime();
+
+				$.each(Velocity.State.calls, function(i, activeCall) {
+
+					if (activeCall) {
+
+						/* If we have a queueName and this call is not on that queue, skip */
+						if (queueName !== undefined && ((activeCall[2].queue !== queueName) || (activeCall[2].queue === false))) {
+							return true;
+						}
+
+						/* Set call to resumed if it was paused */
+						if (activeCall[5]) {
+							activeCall[5].resume = true;
+						}
+					}
+				});
+				/* Resume timers on any currently delayed calls */
+				$.each(Velocity.State.delayedElements, function(k, element) {
+					if (!element) {
+						return;
+					}
+					resumeDelayOnElement(element, currentTime);
+				});
+			}
 		};
 
 		/* Retrieve the appropriate scroll anchor and property name for the browser: https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY */
@@ -844,6 +952,33 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			/* jQuery <=1.4.2 returns null instead of undefined when no match is found. We normalize this behavior. */
 			return response === null ? undefined : response;
 		}
+
+		/**************
+		 Delay Timer
+		 **************/
+
+		function pauseDelayOnElement(element, currentTime) {
+			/* Check for any delay timers, and pause the set timeouts (while preserving time data)
+			 to be resumed when the "resume" command is issued */
+			var data = Data(element);
+			if (data && data.delayTimer && !data.delayPaused) {
+				data.delayRemaining = data.delay - currentTime + data.delayBegin;
+				data.delayPaused = true;
+				clearTimeout(data.delayTimer.setTimeout);
+			}
+		}
+
+		function resumeDelayOnElement(element, currentTime) {
+			/* Check for any paused timers and resume */
+			var data = Data(element);
+			if (data && data.delayTimer && data.delayPaused) {
+				/* If the element was mid-delay, re initiate the timeout with the remaining delay */
+				data.delayPaused = false;
+				data.delayTimer.setTimeout = setTimeout(data.delayTimer.next, data.delayRemaining);
+			}
+		}
+
+
 
 		/**************
 		 Easing
@@ -1027,7 +1162,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 					dx: state.v,
 					dv: springAccelerationForState(state)
 				},
-				b = springEvaluateStateWithDerivative(state, dt * 0.5, a),
+						b = springEvaluateStateWithDerivative(state, dt * 0.5, a),
 						c = springEvaluateStateWithDerivative(state, dt * 0.5, b),
 						d = springEvaluateStateWithDerivative(state, dt, c),
 						dxdt = 1.0 / 6.0 * (a.dx + 2.0 * (b.dx + c.dx) + d.dx),
@@ -1047,7 +1182,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 					tension: null,
 					friction: null
 				},
-				path = [0],
+						path = [0],
 						time_lapsed = 0,
 						tolerance = 1 / 10000,
 						DT = 16 / 1000,
@@ -1203,7 +1338,161 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			Lists: {
 				colors: ["fill", "stroke", "stopColor", "color", "backgroundColor", "borderColor", "borderTopColor", "borderRightColor", "borderBottomColor", "borderLeftColor", "outlineColor"],
 				transformsBase: ["translateX", "translateY", "scale", "scaleX", "scaleY", "skewX", "skewY", "rotateZ"],
-				transforms3D: ["transformPerspective", "translateZ", "scaleZ", "rotateX", "rotateY"]
+				transforms3D: ["transformPerspective", "translateZ", "scaleZ", "rotateX", "rotateY"],
+				units: [
+					"%", // relative
+					"em", "ex", "ch", "rem", // font relative
+					"vw", "vh", "vmin", "vmax", // viewport relative
+					"cm", "mm", "Q", "in", "pc", "pt", "px", // absolute lengths
+					"deg", "grad", "rad", "turn", // angles
+					"s", "ms" // time
+				],
+				colorNames: {
+					"aliceblue": "240,248,255",
+					"antiquewhite": "250,235,215",
+					"aquamarine": "127,255,212",
+					"aqua": "0,255,255",
+					"azure": "240,255,255",
+					"beige": "245,245,220",
+					"bisque": "255,228,196",
+					"black": "0,0,0",
+					"blanchedalmond": "255,235,205",
+					"blueviolet": "138,43,226",
+					"blue": "0,0,255",
+					"brown": "165,42,42",
+					"burlywood": "222,184,135",
+					"cadetblue": "95,158,160",
+					"chartreuse": "127,255,0",
+					"chocolate": "210,105,30",
+					"coral": "255,127,80",
+					"cornflowerblue": "100,149,237",
+					"cornsilk": "255,248,220",
+					"crimson": "220,20,60",
+					"cyan": "0,255,255",
+					"darkblue": "0,0,139",
+					"darkcyan": "0,139,139",
+					"darkgoldenrod": "184,134,11",
+					"darkgray": "169,169,169",
+					"darkgrey": "169,169,169",
+					"darkgreen": "0,100,0",
+					"darkkhaki": "189,183,107",
+					"darkmagenta": "139,0,139",
+					"darkolivegreen": "85,107,47",
+					"darkorange": "255,140,0",
+					"darkorchid": "153,50,204",
+					"darkred": "139,0,0",
+					"darksalmon": "233,150,122",
+					"darkseagreen": "143,188,143",
+					"darkslateblue": "72,61,139",
+					"darkslategray": "47,79,79",
+					"darkturquoise": "0,206,209",
+					"darkviolet": "148,0,211",
+					"deeppink": "255,20,147",
+					"deepskyblue": "0,191,255",
+					"dimgray": "105,105,105",
+					"dimgrey": "105,105,105",
+					"dodgerblue": "30,144,255",
+					"firebrick": "178,34,34",
+					"floralwhite": "255,250,240",
+					"forestgreen": "34,139,34",
+					"fuchsia": "255,0,255",
+					"gainsboro": "220,220,220",
+					"ghostwhite": "248,248,255",
+					"gold": "255,215,0",
+					"goldenrod": "218,165,32",
+					"gray": "128,128,128",
+					"grey": "128,128,128",
+					"greenyellow": "173,255,47",
+					"green": "0,128,0",
+					"honeydew": "240,255,240",
+					"hotpink": "255,105,180",
+					"indianred": "205,92,92",
+					"indigo": "75,0,130",
+					"ivory": "255,255,240",
+					"khaki": "240,230,140",
+					"lavenderblush": "255,240,245",
+					"lavender": "230,230,250",
+					"lawngreen": "124,252,0",
+					"lemonchiffon": "255,250,205",
+					"lightblue": "173,216,230",
+					"lightcoral": "240,128,128",
+					"lightcyan": "224,255,255",
+					"lightgoldenrodyellow": "250,250,210",
+					"lightgray": "211,211,211",
+					"lightgrey": "211,211,211",
+					"lightgreen": "144,238,144",
+					"lightpink": "255,182,193",
+					"lightsalmon": "255,160,122",
+					"lightseagreen": "32,178,170",
+					"lightskyblue": "135,206,250",
+					"lightslategray": "119,136,153",
+					"lightsteelblue": "176,196,222",
+					"lightyellow": "255,255,224",
+					"limegreen": "50,205,50",
+					"lime": "0,255,0",
+					"linen": "250,240,230",
+					"magenta": "255,0,255",
+					"maroon": "128,0,0",
+					"mediumaquamarine": "102,205,170",
+					"mediumblue": "0,0,205",
+					"mediumorchid": "186,85,211",
+					"mediumpurple": "147,112,219",
+					"mediumseagreen": "60,179,113",
+					"mediumslateblue": "123,104,238",
+					"mediumspringgreen": "0,250,154",
+					"mediumturquoise": "72,209,204",
+					"mediumvioletred": "199,21,133",
+					"midnightblue": "25,25,112",
+					"mintcream": "245,255,250",
+					"mistyrose": "255,228,225",
+					"moccasin": "255,228,181",
+					"navajowhite": "255,222,173",
+					"navy": "0,0,128",
+					"oldlace": "253,245,230",
+					"olivedrab": "107,142,35",
+					"olive": "128,128,0",
+					"orangered": "255,69,0",
+					"orange": "255,165,0",
+					"orchid": "218,112,214",
+					"palegoldenrod": "238,232,170",
+					"palegreen": "152,251,152",
+					"paleturquoise": "175,238,238",
+					"palevioletred": "219,112,147",
+					"papayawhip": "255,239,213",
+					"peachpuff": "255,218,185",
+					"peru": "205,133,63",
+					"pink": "255,192,203",
+					"plum": "221,160,221",
+					"powderblue": "176,224,230",
+					"purple": "128,0,128",
+					"red": "255,0,0",
+					"rosybrown": "188,143,143",
+					"royalblue": "65,105,225",
+					"saddlebrown": "139,69,19",
+					"salmon": "250,128,114",
+					"sandybrown": "244,164,96",
+					"seagreen": "46,139,87",
+					"seashell": "255,245,238",
+					"sienna": "160,82,45",
+					"silver": "192,192,192",
+					"skyblue": "135,206,235",
+					"slateblue": "106,90,205",
+					"slategray": "112,128,144",
+					"snow": "255,250,250",
+					"springgreen": "0,255,127",
+					"steelblue": "70,130,180",
+					"tan": "210,180,140",
+					"teal": "0,128,128",
+					"thistle": "216,191,216",
+					"tomato": "255,99,71",
+					"turquoise": "64,224,208",
+					"violet": "238,130,238",
+					"wheat": "245,222,179",
+					"whitesmoke": "245,245,245",
+					"white": "255,255,255",
+					"yellowgreen": "154,205,50",
+					"yellow": "255,255,0"
+				}
 			},
 			/************
 			 Hooks
@@ -1309,6 +1598,22 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 						/* If there was no hook match, return the property name untouched. */
 						return property;
 					}
+				},
+				getUnit: function(str, start) {
+					var unit = (str.substr(start || 0, 5).match(/^[a-z%]+/) || [])[0] || "";
+
+					if (unit && CSS.Lists.units.indexOf(unit) >= 0) {
+						return unit;
+					}
+					return "";
+				},
+				fixColors: function(str) {
+					return str.replace(/(rgba?\(\s*)?(\b[a-z]+\b)/g, function($0, $1, $2) {
+						if (CSS.Lists.colorNames.hasOwnProperty($2)) {
+							return ($1 ? $1 : "rgba(") + CSS.Lists.colorNames[$2] + ($1 ? "" : ",1)");
+						}
+						return $1 + $2;
+					});
 				},
 				/* Convert any rootPropertyValue, null or otherwise, into a space-delimited list of hook values so that
 				 the targeted hook can be injected or extracted at its standard position. */
@@ -1638,6 +1943,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 
 										return extracted;
 									case "inject":
+										/* If we have a pattern then it might already have the right values */
+										if (/^rgb/.test(propertyValue)) {
+											return propertyValue;
+										}
+
 										/* If this is IE<=8 and an alpha component exists, strip it off. */
 										if (IE <= 8) {
 											if (propertyValue.split(" ").length === 4) {
@@ -1655,6 +1965,47 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 							};
 						})();
 					}
+
+					/**************
+					 Dimensions
+					 **************/
+					function augmentDimension(name, element, wantInner) {
+						var isBorderBox = CSS.getPropertyValue(element, "boxSizing").toString().toLowerCase() === "border-box";
+
+						if (isBorderBox === (wantInner || false)) {
+							/* in box-sizing mode, the CSS width / height accessors already give the outerWidth / outerHeight. */
+							var i,
+									value,
+									augment = 0,
+									sides = name === "width" ? ["Left", "Right"] : ["Top", "Bottom"],
+									fields = ["padding" + sides[0], "padding" + sides[1], "border" + sides[0] + "Width", "border" + sides[1] + "Width"];
+
+							for (i = 0; i < fields.length; i++) {
+								value = parseFloat(CSS.getPropertyValue(element, fields[i]));
+								if (!isNaN(value)) {
+									augment += value;
+								}
+							}
+							return wantInner ? -augment : augment;
+						}
+						return 0;
+					}
+					function getDimension(name, wantInner) {
+						return function(type, element, propertyValue) {
+							switch (type) {
+								case "name":
+									return name;
+								case "extract":
+									return parseFloat(propertyValue) + augmentDimension(name, element, wantInner);
+								case "inject":
+									return (parseFloat(propertyValue) - augmentDimension(name, element, wantInner)) + "px";
+							}
+						};
+					}
+					CSS.Normalizations.registered.innerWidth = getDimension("width", true);
+					CSS.Normalizations.registered.innerHeight = getDimension("height", true);
+					CSS.Normalizations.registered.outerWidth = getDimension("width");
+					CSS.Normalizations.registered.outerHeight = getDimension("height");
 				}
 			},
 			/************************
@@ -1777,17 +2128,34 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				},
 				/* The class add/remove functions are used to temporarily apply a "velocity-animating" class to elements while they're animating. */
 				addClass: function(element, className) {
-					if (element.classList) {
-						element.classList.add(className);
-					} else {
-						element.className += (element.className.length ? " " : "") + className;
+					if (element) {
+						if (element.classList) {
+							element.classList.add(className);
+						} else if (Type.isString(element.className)) {
+							// Element.className is around 15% faster then set/getAttribute
+							element.className += (element.className.length ? " " : "") + className;
+						} else {
+							// Work around for IE strict mode animating SVG - and anything else that doesn't behave correctly - the same way jQuery does it
+							var currentClass = element.getAttribute(IE <= 7 ? "className" : "class") || "";
+
+							element.setAttribute("class", currentClass + (currentClass ? " " : "") + className);
+						}
 					}
 				},
 				removeClass: function(element, className) {
-					if (element.classList) {
-						element.classList.remove(className);
-					} else {
-						element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+					if (element) {
+						if (element.classList) {
+							element.classList.remove(className);
+						} else if (Type.isString(element.className)) {
+							// Element.className is around 15% faster then set/getAttribute
+							// TODO: Need some jsperf tests on performance - can we get rid of the regex and maybe use split / array manipulation?
+							element.className = element.className.toString().replace(new RegExp("(^|\\s)" + className.split(" ").join("|") + "(\\s|$)", "gi"), " ");
+						} else {
+							// Work around for IE strict mode animating SVG - and anything else that doesn't behave correctly - the same way jQuery does it
+							var currentClass = element.getAttribute(IE <= 7 ? "className" : "class") || "";
+
+							element.setAttribute("class", currentClass.replace(new RegExp("(^|\s)" + className.split(" ").join("|") + "(\s|$)", "gi"), " "));
+						}
 					}
 				}
 			},
@@ -2176,12 +2544,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				/* Get property value. If an element set was passed in, only return the value for the first element. */
 				if (arg3 === undefined) {
 					if (value === undefined) {
-						value = Velocity.CSS.getPropertyValue(element, arg2);
+						value = CSS.getPropertyValue(element, arg2);
 					}
 					/* Set property value. */
 				} else {
 					/* sPV returns an array of the normalized propertyName/propertyValue pair used to update the DOM. */
-					var adjustedSet = Velocity.CSS.setPropertyValue(element, arg2, arg3);
+					var adjustedSet = CSS.setPropertyValue(element, arg2, arg3);
 
 					/* Transform properties don't automatically set. They have to be flushed to the DOM. */
 					if (adjustedSet[0] === "transform") {
@@ -2252,55 +2620,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				elements = syntacticSugar ? (arguments[0].elements || arguments[0].e) : arguments[0];
 			}
 
-			elements = sanitizeElements(elements);
-
-			if (!elements) {
-				return;
-			}
-
-			if (syntacticSugar) {
-				propertiesMap = arguments[0].properties || arguments[0].p;
-				options = arguments[0].options || arguments[0].o;
-			} else {
-				propertiesMap = arguments[argumentIndex];
-				options = arguments[argumentIndex + 1];
-			}
-
-			/* The length of the element set (in the form of a nodeList or an array of elements) is defaulted to 1 in case a
-			 single raw DOM element is passed in (which doesn't contain a length property). */
-			var elementsLength = elements.length,
-					elementsIndex = 0;
-
-			/***************************
-			 Argument Overloading
-			 ***************************/
-
-			/* Support is included for jQuery's argument overloading: $.animate(propertyMap [, duration] [, easing] [, complete]).
-			 Overloading is detected by checking for the absence of an object being passed into options. */
-			/* Note: The stop and finish actions do not accept animation options, and are therefore excluded from this check. */
-			if (!/^(stop|finish|finishAll)$/i.test(propertiesMap) && !$.isPlainObject(options)) {
-				/* The utility function shifts all arguments one position to the right, so we adjust for that offset. */
-				var startingArgumentPosition = argumentIndex + 1;
-
-				options = {};
-
-				/* Iterate through all options arguments */
-				for (var i = startingArgumentPosition; i < arguments.length; i++) {
-					/* Treat a number as a duration. Parse it out. */
-					/* Note: The following RegEx will return true if passed an array with a number as its first item.
-					 Thus, arrays are skipped from this check. */
-					if (!Type.isArray(arguments[i]) && (/^(fast|normal|slow)$/i.test(arguments[i]) || /^\d/.test(arguments[i]))) {
-						options.duration = arguments[i];
-						/* Treat strings and arrays as easings. */
-					} else if (Type.isString(arguments[i]) || Type.isArray(arguments[i])) {
-						options.easing = arguments[i];
-						/* Treat a function as a complete callback. */
-					} else if (Type.isFunction(arguments[i])) {
-						options.complete = arguments[i];
-					}
-				}
-			}
-
 			/***************
 			 Promises
 			 ***************/
@@ -2325,13 +2644,70 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				});
 			}
 
+			if (syntacticSugar) {
+				propertiesMap = arguments[0].properties || arguments[0].p;
+				options = arguments[0].options || arguments[0].o;
+			} else {
+				propertiesMap = arguments[argumentIndex];
+				options = arguments[argumentIndex + 1];
+			}
+
+			elements = sanitizeElements(elements);
+
+			if (!elements) {
+				if (promiseData.promise) {
+					if (!propertiesMap || !options || options.promiseRejectEmpty !== false) {
+						promiseData.rejecter();
+					} else {
+						promiseData.resolver();
+					}
+				}
+				return;
+			}
+
+			/* The length of the element set (in the form of a nodeList or an array of elements) is defaulted to 1 in case a
+			 single raw DOM element is passed in (which doesn't contain a length property). */
+			var elementsLength = elements.length,
+					elementsIndex = 0;
+
+			/***************************
+			 Argument Overloading
+			 ***************************/
+
+			/* Support is included for jQuery's argument overloading: $.animate(propertyMap [, duration] [, easing] [, complete]).
+			 Overloading is detected by checking for the absence of an object being passed into options. */
+			/* Note: The stop/finish/pause/resume actions do not accept animation options, and are therefore excluded from this check. */
+			if (!/^(stop|finish|finishAll|pause|resume)$/i.test(propertiesMap) && !$.isPlainObject(options)) {
+				/* The utility function shifts all arguments one position to the right, so we adjust for that offset. */
+				var startingArgumentPosition = argumentIndex + 1;
+
+				options = {};
+
+				/* Iterate through all options arguments */
+				for (var i = startingArgumentPosition; i < arguments.length; i++) {
+					/* Treat a number as a duration. Parse it out. */
+					/* Note: The following RegEx will return true if passed an array with a number as its first item.
+					 Thus, arrays are skipped from this check. */
+					if (!Type.isArray(arguments[i]) && (/^(fast|normal|slow)$/i.test(arguments[i]) || /^\d/.test(arguments[i]))) {
+						options.duration = arguments[i];
+						/* Treat strings and arrays as easings. */
+					} else if (Type.isString(arguments[i]) || Type.isArray(arguments[i])) {
+						options.easing = arguments[i];
+						/* Treat a function as a complete callback. */
+					} else if (Type.isFunction(arguments[i])) {
+						options.complete = arguments[i];
+					}
+				}
+			}
+
 			/*********************
 			 Action Detection
 			 *********************/
 
 			/* Velocity's behavior is categorized into "actions": Elements can either be specially scrolled into view,
-			 or they can be started, stopped, or reversed. If a literal or referenced properties map is passed in as Velocity's
-			 first argument, the associated action is "start". Alternatively, "scroll", "reverse", or "stop" can be passed in instead of a properties map. */
+			 or they can be started, stopped, paused, resumed, or reversed . If a literal or referenced properties map is passed in as Velocity's
+			 first argument, the associated action is "start". Alternatively, "scroll", "reverse", "pause", "resume" or "stop" can be passed in 
+			 instead of a properties map. */
 			var action;
 
 			switch (propertiesMap) {
@@ -2342,6 +2718,125 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				case "reverse":
 					action = "reverse";
 					break;
+
+				case "pause":
+
+					/*******************
+					 Action: Pause
+					 *******************/
+
+					var currentTime = (new Date()).getTime();
+
+					/* Handle delay timers */
+					$.each(elements, function(i, element) {
+						pauseDelayOnElement(element, currentTime);
+					});
+
+					/* Pause and Resume are call-wide (not on a per element basis). Thus, calling pause or resume on a 
+					 single element will cause any calls that containt tweens for that element to be paused/resumed
+					 as well. */
+
+					/* Iterate through all calls and pause any that contain any of our elements */
+					$.each(Velocity.State.calls, function(i, activeCall) {
+
+						var found = false;
+						/* Inactive calls are set to false by the logic inside completeCall(). Skip them. */
+						if (activeCall) {
+							/* Iterate through the active call's targeted elements. */
+							$.each(activeCall[1], function(k, activeElement) {
+								var queueName = (options === undefined) ? "" : options;
+
+								if (queueName !== true && (activeCall[2].queue !== queueName) && !(options === undefined && activeCall[2].queue === false)) {
+									return true;
+								}
+
+								/* Iterate through the calls targeted by the stop command. */
+								$.each(elements, function(l, element) {
+									/* Check that this call was applied to the target element. */
+									if (element === activeElement) {
+
+										/* Set call to paused */
+										activeCall[5] = {
+											resume: false
+										};
+
+										/* Once we match an element, we can bounce out to the next call entirely */
+										found = true;
+										return false;
+									}
+								});
+
+								/* Proceed to check next call if we have already matched */
+								if (found) {
+									return false;
+								}
+							});
+						}
+
+					});
+
+					/* Since pause creates no new tweens, exit out of Velocity. */
+					return getChain();
+
+				case "resume":
+
+					/*******************
+					 Action: Resume
+					 *******************/
+
+					/* Handle delay timers */
+					$.each(elements, function(i, element) {
+						resumeDelayOnElement(element, currentTime);
+					});
+
+					/* Pause and Resume are call-wide (not on a per elemnt basis). Thus, calling pause or resume on a 
+					 single element will cause any calls that containt tweens for that element to be paused/resumed
+					 as well. */
+
+					/* Iterate through all calls and pause any that contain any of our elements */
+					$.each(Velocity.State.calls, function(i, activeCall) {
+						var found = false;
+						/* Inactive calls are set to false by the logic inside completeCall(). Skip them. */
+						if (activeCall) {
+							/* Iterate through the active call's targeted elements. */
+							$.each(activeCall[1], function(k, activeElement) {
+								var queueName = (options === undefined) ? "" : options;
+
+								if (queueName !== true && (activeCall[2].queue !== queueName) && !(options === undefined && activeCall[2].queue === false)) {
+									return true;
+								}
+
+								/* Skip any calls that have never been paused */
+								if (!activeCall[5]) {
+									return true;
+								}
+
+								/* Iterate through the calls targeted by the stop command. */
+								$.each(elements, function(l, element) {
+									/* Check that this call was applied to the target element. */
+									if (element === activeElement) {
+
+										/* Flag a pause object to be resumed, which will occur during the next tick. In
+										 addition, the pause object will at that time be deleted */
+										activeCall[5].resume = true;
+
+										/* Once we match an element, we can bounce out to the next call entirely */
+										found = true;
+										return false;
+									}
+								});
+
+								/* Proceed to check next call if we have already matched */
+								if (found) {
+									return false;
+								}
+							});
+						}
+
+					});
+
+					/* Since resume creates no new tweens, exit out of Velocity. */
+					return getChain();
 
 				case "finish":
 				case "finishAll":
@@ -2608,10 +3103,29 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 						Velocity.velocityQueueEntryFlag = true;
 
 						/* The ensuing queue item (which is assigned to the "next" argument that $.queue() automatically passes in) will be triggered after a setTimeout delay.
-						 The setTimeout is stored so that it can be subjected to clearTimeout() if this animation is prematurely stopped via Velocity's "stop" command. */
+						 The setTimeout is stored so that it can be subjected to clearTimeout() if this animation is prematurely stopped via Velocity's "stop" command, and
+						 delayBegin/delayTime is used to ensure we can "pause" and "resume" a tween that is still mid-delay. */
+
+						/* Temporarily store delayed elements to facilite access for global pause/resume */
+						var callIndex = Velocity.State.delayedElements.count++;
+						Velocity.State.delayedElements[callIndex] = element;
+
+						var delayComplete = (function(index) {
+							return function() {
+								/* Clear the temporary element */
+								Velocity.State.delayedElements[index] = false;
+
+								/* Finally, issue the call */
+								next();
+							};
+						})(callIndex);
+
+
+						Data(element).delayBegin = (new Date()).getTime();
+						Data(element).delay = parseFloat(opts.delay);
 						Data(element).delayTimer = {
 							setTimeout: setTimeout(next, parseFloat(opts.delay)),
-							next: next
+							next: delayComplete
 						};
 					});
 				}
@@ -2929,6 +3443,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 						var parsePropertyValue = function(valueData, skipResolvingEasing) {
 							var endValue, easing, startValue;
 
+							/* If we have a function as the main argument then resolve it first, in case it returns an array that needs to be split */
+							if (Type.isFunction(valueData)) {
+								valueData = valueData.call(element, elementArrayIndex, elementsLength);
+							}
+
 							/* Handle the array format, which can be structured as one of three potential overloads:
 							 A) [ endValue, easing, startValue ], B) [ endValue, easing ], or C) [ endValue, startValue ] */
 							if (Type.isArray(valueData)) {
@@ -2940,14 +3459,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								 start value since easings can only be non-hex strings or arrays. */
 								if ((!Type.isArray(valueData[1]) && /^[\d-]/.test(valueData[1])) || Type.isFunction(valueData[1]) || CSS.RegEx.isHex.test(valueData[1])) {
 									startValue = valueData[1];
-									/* Two or three-item array: If the second item is a non-hex string or an array, treat it as an easing. */
-								} else if ((Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1])) || Type.isArray(valueData[1])) {
+									/* Two or three-item array: If the second item is a non-hex string easing name or an array, treat it as an easing. */
+								} else if ((Type.isString(valueData[1]) && !CSS.RegEx.isHex.test(valueData[1]) && Velocity.Easings[valueData[1]]) || Type.isArray(valueData[1])) {
 									easing = skipResolvingEasing ? valueData[1] : getEasing(valueData[1], opts.duration);
 
 									/* Don't bother validating startValue's value now since the ensuing property cycling logic inherently does that. */
-									if (valueData[2] !== undefined) {
-										startValue = valueData[2];
-									}
+									startValue = valueData[2];
+								} else {
+									startValue = valueData[1] || valueData[2];
 								}
 								/* Handle the single-value format. */
 							} else {
@@ -2973,67 +3492,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 							return [endValue || 0, easing, startValue];
 						};
 
-						/* Cycle through each property in the map, looking for shorthand color properties (e.g. "color" as opposed to "colorRed"). Inject the corresponding
-						 colorRed, colorGreen, and colorBlue RGB component tweens into the propertiesMap (which Velocity understands) and remove the shorthand property. */
-						$.each(propertiesMap, function(property, value) {
-							/* Find shorthand color properties that have been passed a hex string. */
-							if (RegExp("^" + CSS.Lists.colors.join("$|^") + "$").test(CSS.Names.camelCase(property))) {
-								/* Parse the value data for each shorthand. */
-								var valueData = parsePropertyValue(value, true),
-										endValue = valueData[0],
-										easing = valueData[1],
-										startValue = valueData[2];
+						var fixPropertyValue = function(property, valueData) {
+							/* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
+							var rootProperty = CSS.Hooks.getRoot(property),
+									rootPropertyValue = false,
+									/* Parse out endValue, easing, and startValue from the property's data. */
+									endValue = valueData[0],
+									easing = valueData[1],
+									startValue = valueData[2],
+									pattern;
 
-								if (CSS.RegEx.isHex.test(endValue)) {
-									/* Convert the hex strings into their RGB component arrays. */
-									var colorComponents = ["Red", "Green", "Blue"],
-											endValueRGB = CSS.Values.hexToRgb(endValue),
-											startValueRGB = startValue ? CSS.Values.hexToRgb(startValue) : undefined;
-
-									/* Inject the RGB component tweens into propertiesMap. */
-									for (var i = 0; i < colorComponents.length; i++) {
-										var dataArray = [endValueRGB[i]];
-
-										if (easing) {
-											dataArray.push(easing);
-										}
-
-										if (startValueRGB !== undefined) {
-											dataArray.push(startValueRGB[i]);
-										}
-
-										propertiesMap[CSS.Names.camelCase(property) + colorComponents[i]] = dataArray;
-									}
-
-									/* Remove the intermediary shorthand property entry now that we've processed it. */
-									delete propertiesMap[property];
-								}
-							}
-						});
-
-						/* Create a tween out of each property, and append its associated data to tweensContainer. */
-						for (var property in propertiesMap) {
-
-							if (!propertiesMap.hasOwnProperty(property)) {
-								continue;
-							}
 							/**************************
 							 Start Value Sourcing
 							 **************************/
-
-							/* Parse out endValue, easing, and startValue from the property's data. */
-							var valueData = parsePropertyValue(propertiesMap[property]),
-									endValue = valueData[0],
-									easing = valueData[1],
-									startValue = valueData[2];
-
-							/* Now that the original property name's format has been used for the parsePropertyValue() lookup above,
-							 we force the property to its camelCase styling to normalize it for manipulation. */
-							property = CSS.Names.camelCase(property);
-
-							/* In case this property is a hook, there are circumstances where we will intend to work on the hook's root property and not the hooked subproperty. */
-							var rootProperty = CSS.Hooks.getRoot(property),
-									rootPropertyValue = false;
 
 							/* Other than for the dummy tween property, properties that are not supported by the browser (and do not have an associated normalization) will
 							 inherently produce no style changes when set, so they are skipped in order to decrease animation tick overhead.
@@ -3044,7 +3515,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								if (Velocity.debug) {
 									console.log("Skipping [" + rootProperty + "] due to a lack of browser support.");
 								}
-								continue;
+								return;
 							}
 
 							/* If the display option is being set to a non-"none" (e.g. "block") and opacity (filter on IE<=8) is being
@@ -3123,45 +3594,183 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								return [numericValue, unitType];
 							};
 
-							/* Separate startValue. */
-							separatedValue = separateValue(property, startValue);
-							startValue = separatedValue[0];
-							startValueUnitType = separatedValue[1];
+							if (startValue !== endValue && Type.isString(startValue) && Type.isString(endValue)) {
+								pattern = "";
+								var iStart = 0, // index in startValue
+										iEnd = 0, // index in endValue
+										aStart = [], // array of startValue numbers
+										aEnd = [], // array of endValue numbers
+										inCalc = 0, // Keep track of being inside a "calc()" so we don't duplicate it
+										inRGB = 0, // Keep track of being inside an RGB as we can't use fractional values
+										inRGBA = 0; // Keep track of being inside an RGBA as we must pass fractional for the alpha channel
 
-							/* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
-							separatedValue = separateValue(property, endValue);
-							endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
-								operator = subMatch;
+								startValue = CSS.Hooks.fixColors(startValue);
+								endValue = CSS.Hooks.fixColors(endValue);
+								while (iStart < startValue.length && iEnd < endValue.length) {
+									var cStart = startValue[iStart],
+											cEnd = endValue[iEnd];
 
-								/* Strip the operator off of the value. */
-								return "";
-							});
-							endValueUnitType = separatedValue[1];
+									if (/[\d\.]/.test(cStart) && /[\d\.]/.test(cEnd)) {
+										var tStart = cStart, // temporary character buffer
+												tEnd = cEnd, // temporary character buffer
+												dotStart = ".", // Make sure we can only ever match a single dot in a decimal
+												dotEnd = "."; // Make sure we can only ever match a single dot in a decimal
 
-							/* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
-							startValue = parseFloat(startValue) || 0;
-							endValue = parseFloat(endValue) || 0;
+										while (++iStart < startValue.length) {
+											cStart = startValue[iStart];
+											if (cStart === dotStart) {
+												dotStart = ".."; // Can never match two characters
+											} else if (!/\d/.test(cStart)) {
+												break;
+											}
+											tStart += cStart;
+										}
+										while (++iEnd < endValue.length) {
+											cEnd = endValue[iEnd];
+											if (cEnd === dotEnd) {
+												dotEnd = ".."; // Can never match two characters
+											} else if (!/\d/.test(cEnd)) {
+												break;
+											}
+											tEnd += cEnd;
+										}
+										var uStart = CSS.Hooks.getUnit(startValue, iStart), // temporary unit type
+												uEnd = CSS.Hooks.getUnit(endValue, iEnd); // temporary unit type
 
-							/***************************************
-							 Property-Specific Value Conversion
-							 ***************************************/
+										iStart += uStart.length;
+										iEnd += uEnd.length;
+										if (uStart === uEnd) {
+											// Same units
+											if (tStart === tEnd) {
+												// Same numbers, so just copy over
+												pattern += tStart + uStart;
+											} else {
+												// Different numbers, so store them
+												pattern += "{" + aStart.length + (inRGB ? "!" : "") + "}" + uStart;
+												aStart.push(parseFloat(tStart));
+												aEnd.push(parseFloat(tEnd));
+											}
+										} else {
+											// Different units, so put into a "calc(from + to)" and animate each side to/from zero
+											var nStart = parseFloat(tStart),
+													nEnd = parseFloat(tEnd);
 
-							/* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
-							if (endValueUnitType === "%") {
-								/* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
-								 which is identical to the em unit's behavior, so we piggyback off of that. */
-								if (/^(fontSize|lineHeight)$/.test(property)) {
-									/* Convert % into an em decimal value. */
-									endValue = endValue / 100;
-									endValueUnitType = "em";
-									/* For scaleX and scaleY, convert the value into its decimal format and strip off the unit type. */
-								} else if (/^scale/.test(property)) {
-									endValue = endValue / 100;
-									endValueUnitType = "";
-									/* For RGB components, take the defined percentage of 255 and strip off the unit type. */
-								} else if (/(Red|Green|Blue)$/i.test(property)) {
-									endValue = (endValue / 100) * 255;
-									endValueUnitType = "";
+											pattern += (inCalc < 5 ? "calc" : "") + "("
+													+ (nStart ? "{" + aStart.length + (inRGB ? "!" : "") + "}" : "0") + uStart
+													+ " + "
+													+ (nEnd ? "{" + (aStart.length + (nStart ? 1 : 0)) + (inRGB ? "!" : "") + "}" : "0") + uEnd
+													+ ")";
+											if (nStart) {
+												aStart.push(nStart);
+												aEnd.push(0);
+											}
+											if (nEnd) {
+												aStart.push(0);
+												aEnd.push(nEnd);
+											}
+										}
+									} else if (cStart === cEnd) {
+										pattern += cStart;
+										iStart++;
+										iEnd++;
+										// Keep track of being inside a calc()
+										if (inCalc === 0 && cStart === "c"
+												|| inCalc === 1 && cStart === "a"
+												|| inCalc === 2 && cStart === "l"
+												|| inCalc === 3 && cStart === "c"
+												|| inCalc >= 4 && cStart === "("
+												) {
+											inCalc++;
+										} else if ((inCalc && inCalc < 5)
+												|| inCalc >= 4 && cStart === ")" && --inCalc < 5) {
+											inCalc = 0;
+										}
+										// Keep track of being inside an rgb() / rgba()
+										if (inRGB === 0 && cStart === "r"
+												|| inRGB === 1 && cStart === "g"
+												|| inRGB === 2 && cStart === "b"
+												|| inRGB === 3 && cStart === "a"
+												|| inRGB >= 3 && cStart === "("
+												) {
+											if (inRGB === 3 && cStart === "a") {
+												inRGBA = 1;
+											}
+											inRGB++;
+										} else if (inRGBA && cStart === ",") {
+											if (++inRGBA > 3) {
+												inRGB = inRGBA = 0;
+											}
+										} else if ((inRGBA && inRGB < (inRGBA ? 5 : 4))
+												|| inRGB >= (inRGBA ? 4 : 3) && cStart === ")" && --inRGB < (inRGBA ? 5 : 4)) {
+											inRGB = inRGBA = 0;
+										}
+									} else {
+										inCalc = 0;
+										// TODO: changing units, fixing colours
+										break;
+									}
+								}
+								if (iStart !== startValue.length || iEnd !== endValue.length) {
+									if (Velocity.debug) {
+										console.error("Trying to pattern match mis-matched strings [\"" + endValue + "\", \"" + startValue + "\"]");
+									}
+									pattern = undefined;
+								}
+								if (pattern) {
+									if (aStart.length) {
+										if (Velocity.debug) {
+											console.log("Pattern found \"" + pattern + "\" -> ", aStart, aEnd, "[" + startValue + "," + endValue + "]");
+										}
+										startValue = aStart;
+										endValue = aEnd;
+										endValueUnitType = startValueUnitType = "";
+									} else {
+										pattern = undefined;
+									}
+								}
+							}
+
+							if (!pattern) {
+								/* Separate startValue. */
+								separatedValue = separateValue(property, startValue);
+								startValue = separatedValue[0];
+								startValueUnitType = separatedValue[1];
+
+								/* Separate endValue, and extract a value operator (e.g. "+=", "-=") if one exists. */
+								separatedValue = separateValue(property, endValue);
+								endValue = separatedValue[0].replace(/^([+-\/*])=/, function(match, subMatch) {
+									operator = subMatch;
+
+									/* Strip the operator off of the value. */
+									return "";
+								});
+								endValueUnitType = separatedValue[1];
+
+								/* Parse float values from endValue and startValue. Default to 0 if NaN is returned. */
+								startValue = parseFloat(startValue) || 0;
+								endValue = parseFloat(endValue) || 0;
+
+								/***************************************
+								 Property-Specific Value Conversion
+								 ***************************************/
+
+								/* Custom support for properties that don't actually accept the % unit type, but where pollyfilling is trivial and relatively foolproof. */
+								if (endValueUnitType === "%") {
+									/* A %-value fontSize/lineHeight is relative to the parent's fontSize (as opposed to the parent's dimensions),
+									 which is identical to the em unit's behavior, so we piggyback off of that. */
+									if (/^(fontSize|lineHeight)$/.test(property)) {
+										/* Convert % into an em decimal value. */
+										endValue = endValue / 100;
+										endValueUnitType = "em";
+										/* For scaleX and scaleY, convert the value into its decimal format and strip off the unit type. */
+									} else if (/^scale/.test(property)) {
+										endValue = endValue / 100;
+										endValueUnitType = "";
+										/* For RGB components, take the defined percentage of 255 and strip off the unit type. */
+									} else if (/(Red|Green|Blue)$/i.test(property)) {
+										endValue = (endValue / 100) * 255;
+										endValueUnitType = "";
+									}
 								}
 							}
 
@@ -3196,8 +3805,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 									position: CSS.getPropertyValue(element, "position"), /* GET */
 									fontSize: CSS.getPropertyValue(element, "fontSize") /* GET */
 								},
-								/* Determine if the same % ratio can be used. % is based on the element's position value and its parent's width and height dimensions. */
-								samePercentRatio = ((sameRatioIndicators.position === callUnitConversionData.lastPosition) && (sameRatioIndicators.myParent === callUnitConversionData.lastParent)),
+										/* Determine if the same % ratio can be used. % is based on the element's position value and its parent's width and height dimensions. */
+										samePercentRatio = ((sameRatioIndicators.position === callUnitConversionData.lastPosition) && (sameRatioIndicators.myParent === callUnitConversionData.lastParent)),
 										/* Determine if the same em ratio can be used. em is relative to the element's fontSize. */
 										sameEmRatio = (sameRatioIndicators.fontSize === callUnitConversionData.lastFontSize);
 
@@ -3380,10 +3989,59 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								unitType: endValueUnitType,
 								easing: easing
 							};
+							if (pattern) {
+								tweensContainer[property].pattern = pattern;
+							}
 
 							if (Velocity.debug) {
 								console.log("tweensContainer (" + property + "): " + JSON.stringify(tweensContainer[property]), element);
 							}
+						};
+
+						/* Create a tween out of each property, and append its associated data to tweensContainer. */
+						for (var property in propertiesMap) {
+
+							if (!propertiesMap.hasOwnProperty(property)) {
+								continue;
+							}
+							/* The original property name's format must be used for the parsePropertyValue() lookup,
+							 but we then use its camelCase styling to normalize it for manipulation. */
+							var propertyName = CSS.Names.camelCase(property),
+									valueData = parsePropertyValue(propertiesMap[property]);
+
+							/* Find shorthand color properties that have been passed a hex string. */
+							/* Would be quicker to use CSS.Lists.colors.includes() if possible */
+							if (CSS.Lists.colors.indexOf(propertyName) >= 0) {
+								/* Parse the value data for each shorthand. */
+								var endValue = valueData[0],
+										easing = valueData[1],
+										startValue = valueData[2];
+
+								if (CSS.RegEx.isHex.test(endValue)) {
+									/* Convert the hex strings into their RGB component arrays. */
+									var colorComponents = ["Red", "Green", "Blue"],
+											endValueRGB = CSS.Values.hexToRgb(endValue),
+											startValueRGB = startValue ? CSS.Values.hexToRgb(startValue) : undefined;
+
+									/* Inject the RGB component tweens into propertiesMap. */
+									for (var i = 0; i < colorComponents.length; i++) {
+										var dataArray = [endValueRGB[i]];
+
+										if (easing) {
+											dataArray.push(easing);
+										}
+
+										if (startValueRGB !== undefined) {
+											dataArray.push(startValueRGB[i]);
+										}
+
+										fixPropertyValue(propertyName + colorComponents[i], dataArray);
+									}
+									/* If we have replaced a shortcut color value then don't update the standard property name */
+									continue;
+								}
+							}
+							fixPropertyValue(propertyName, valueData);
 						}
 
 						/* Along with its property data, store a reference to the element itself onto tweensContainer. */
@@ -3422,7 +4080,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 						if (elementsIndex === elementsLength - 1) {
 							/* Add the current call plus its associated metadata (the element set and the call's options) onto the global call container.
 							 Anything on this call container is subjected to tick() processing. */
-							Velocity.State.calls.push([call, elements, opts, null, promiseData.resolver]);
+							Velocity.State.calls.push([call, elements, opts, null, promiseData.resolver, null, 0]);
 
 							/* If the animation tick isn't running, start it. (Velocity shuts it off when there are no active calls to process.) */
 							if (Velocity.State.isTicking === false) {
@@ -3442,7 +4100,27 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 					/* Since this buildQueue call doesn't respect the element's existing queue (which is where a delay option would have been appended),
 					 we manually inject the delay property here with an explicit setTimeout. */
 					if (opts.delay) {
-						setTimeout(buildQueue, opts.delay);
+
+						/* Temporarily store delayed elements to facilitate access for global pause/resume */
+						var callIndex = Velocity.State.delayedElements.count++;
+						Velocity.State.delayedElements[callIndex] = element;
+
+						var delayComplete = (function(index) {
+							return function() {
+								/* Clear the temporary element */
+								Velocity.State.delayedElements[index] = false;
+
+								/* Finally, issue the call */
+								buildQueue();
+							};
+						})(callIndex);
+
+						Data(element).delayBegin = (new Date()).getTime();
+						Data(element).delay = parseFloat(opts.delay);
+						Data(element).delayTimer = {
+							setTimeout: setTimeout(buildQueue, parseFloat(opts.delay)),
+							next: delayComplete
+						};
 					} else {
 						buildQueue();
 					}
@@ -3562,7 +4240,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		 devices to avoid wasting battery power on inactive tabs. */
 		/* Note: Tab focus detection doesn't work on older versions of IE, but that's okay since they don't support rAF to begin with. */
 		if (!Velocity.State.isMobile && document.hidden !== undefined) {
-			document.addEventListener("visibilitychange", function() {
+			var updateTicker = function() {
 				/* Reassign the rAF function (which the global tick() function uses) based on the tab's focus state. */
 				if (document.hidden) {
 					ticker = function(callback) {
@@ -3577,7 +4255,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				} else {
 					ticker = window.requestAnimationFrame || rAFShim;
 				}
-			});
+			};
+
+			/* Page could be sitting in the background at this time (i.e. opened as new tab) so making sure we use correct ticker from the start */
+			updateTicker();
+
+			/* And then run check again every time visibility changes */
+			document.addEventListener("visibilitychange", updateTicker);
 		}
 
 		/************
@@ -3593,9 +4277,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 			 the first RAF tick pass so that elements being immediately consecutively animated -- instead of simultaneously animated
 			 by the same Velocity call -- are properly batched into the same initial RAF tick and consequently remain in sync thereafter. */
 			if (timestamp) {
-				/* We ignore RAF's high resolution timestamp since it can be significantly offset when the browser is
-				 under high stress; we opt for choppiness over allowing the browser to drop huge chunks of frames. */
-				var timeCurrent = (new Date()).getTime();
+				/* We normally use RAF's high resolution timestamp but as it can be significantly offset when the browser is
+				 under high stress we give the option for choppiness over allowing the browser to drop huge chunks of frames.
+				 We use performance.now() and shim it if it doesn't exist for when the tab is hidden. */
+				var timeCurrent = Velocity.timestamp && timestamp !== true ? timestamp : performance.now();
 
 				/********************
 				 Call Iteration
@@ -3627,7 +4312,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 							opts = callContainer[2],
 							timeStart = callContainer[3],
 							firstTick = !!timeStart,
-							tweenDummyValue = null;
+							tweenDummyValue = null,
+							pauseObject = callContainer[5],
+							millisecondsEllapsed = callContainer[6];
+
+
 
 					/* If timeStart is undefined, then this is the first time that this call has been processed by tick().
 					 We assign timeStart now so that its value is as close to the real animation start time as possible.
@@ -3641,10 +4330,25 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 						timeStart = Velocity.State.calls[i][3] = timeCurrent - 16;
 					}
 
+					/* If a pause object is present, skip processing unless it has been set to resume */
+					if (pauseObject) {
+						if (pauseObject.resume === true) {
+							/* Update the time start to accomodate the paused completion amount */
+							timeStart = callContainer[3] = Math.round(timeCurrent - millisecondsEllapsed - 16);
+
+							/* Remove pause object after processing */
+							callContainer[5] = null;
+						} else {
+							continue;
+						}
+					}
+
+					millisecondsEllapsed = callContainer[6] = timeCurrent - timeStart;
+
 					/* The tween's completion percentage is relative to the tween's start time, not the tween's start value
 					 (which would result in unpredictable tween durations since JavaScript's timers are not particularly accurate).
 					 Accordingly, we ensure that percentComplete does not exceed 1. */
-					var percentComplete = Math.min((timeCurrent - timeStart) / opts.duration, 1);
+					var percentComplete = Math.min((millisecondsEllapsed) / opts.duration, 1);
 
 					/**********************
 					 Element Iteration
@@ -3656,7 +4360,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								element = tweensContainer.element;
 
 						/* Check to see if this element has been deleted midway through the animation by checking for the
-						 continued existence of its data cache. If it's gone, skip animating this element. */
+						 continued existence of its data cache. If it's gone, or the element is currently paused, skip animating this element. */
 						if (!Data(element)) {
 							continue;
 						}
@@ -3704,19 +4408,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 								 Current Value Calculation
 								 ******************************/
 
-								/* If this is the last tick pass (if we've reached 100% completion for this tween),
-								 ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
-								if (percentComplete === 1) {
-									currentValue = tween.endValue;
-									/* Otherwise, calculate currentValue based on the current delta from startValue. */
-								} else {
-									var tweenDelta = tween.endValue - tween.startValue;
-									currentValue = tween.startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
+								if (Type.isString(tween.pattern)) {
+									var patternReplace = percentComplete === 1 ?
+											function($0, index, round) {
+												var result = tween.endValue[index];
 
+												return round ? Math.round(result) : result;
+											} :
+											function($0, index, round) {
+												var startValue = tween.startValue[index],
+														tweenDelta = tween.endValue[index] - startValue,
+														result = startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
+
+												return round ? Math.round(result) : result;
+											};
+
+									currentValue = tween.pattern.replace(/{(\d+)(!)?}/g, patternReplace);
+								} else if (percentComplete === 1) {
+									/* If this is the last tick pass (if we've reached 100% completion for this tween),
+									 ensure that currentValue is explicitly set to its target endValue so that it's not subjected to any rounding. */
+									currentValue = tween.endValue;
+								} else {
+									/* Otherwise, calculate currentValue based on the current delta from startValue. */
+									var tweenDelta = tween.endValue - tween.startValue;
+
+									currentValue = tween.startValue + (tweenDelta * easing(percentComplete, opts, tweenDelta));
 									/* If no value change is occurring, don't proceed with DOM updating. */
-									if (!firstTick && (currentValue === tween.currentValue)) {
-										continue;
-									}
+								}
+								if (!firstTick && (currentValue === tween.currentValue)) {
+									continue;
 								}
 
 								tween.currentValue = currentValue;
@@ -3754,7 +4474,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 									/* Note: To solve an IE<=8 positioning bug, the unit type is dropped when setting a property value of 0. */
 									var adjustedSetData = CSS.setPropertyValue(element, /* SET */
 											property,
-											tween.currentValue + (parseFloat(currentValue) === 0 ? "" : tween.unitType),
+											tween.currentValue + (IE < 9 && parseFloat(currentValue) === 0 ? "" : tween.unitType),
 											tween.rootPropertyValue,
 											tween.scrollData);
 
@@ -4038,8 +4758,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 				var opts = $.extend({}, options),
 						begin = opts.begin,
 						complete = opts.complete,
-						computedValues = {height: "", marginTop: "", marginBottom: "", paddingTop: "", paddingBottom: ""},
-				inlineValues = {};
+						inlineValues = {},
+						computedValues = {height: "", marginTop: "", marginBottom: "", paddingTop: "", paddingBottom: ""};
 
 				if (opts.display === undefined) {
 					/* Show the element before slideDown begins and hide the element after slideUp completes. */
@@ -4049,7 +4769,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 
 				opts.begin = function() {
 					/* If the user passed in a begin callback, fire it now. */
-					if (begin) {
+					if (elementsIndex === 0 && begin) {
 						begin.call(elements, elements);
 					}
 
@@ -4062,7 +4782,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 
 						/* For slideDown, use forcefeeding to animate all vertical properties from 0. For slideUp,
 						 use forcefeeding to start from computed values and animate down to 0. */
-						var propertyValue = Velocity.CSS.getPropertyValue(element, property);
+						var propertyValue = CSS.getPropertyValue(element, property);
 						computedValues[property] = (direction === "Down") ? [propertyValue, 0] : [0, propertyValue];
 					}
 
@@ -4080,11 +4800,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 					}
 
 					/* If the user passed in a complete callback, fire it now. */
-					if (complete) {
-						complete.call(elements, elements);
-					}
-					if (promiseData) {
-						promiseData.resolver(elements);
+					if (elementsIndex === elementsSize - 1) {
+						if (complete) {
+							complete.call(elements, elements);
+						}
+						if (promiseData) {
+							promiseData.resolver(elements);
+						}
 					}
 				};
 
@@ -4096,19 +4818,21 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		$.each(["In", "Out"], function(i, direction) {
 			Velocity.Redirects["fade" + direction] = function(element, options, elementsIndex, elementsSize, elements, promiseData) {
 				var opts = $.extend({}, options),
-						originalComplete = opts.complete,
+						complete = opts.complete,
 						propertiesMap = {opacity: (direction === "In") ? 1 : 0};
 
 				/* Since redirects are triggered individually for each element in the animated set, avoid repeatedly triggering
 				 callbacks by firing them only when the final element has been reached. */
+				if (elementsIndex !== 0) {
+					opts.begin = null;
+				}
 				if (elementsIndex !== elementsSize - 1) {
-					opts.complete = opts.begin = null;
+					opts.complete = null;
 				} else {
 					opts.complete = function() {
-						if (originalComplete) {
-							originalComplete.call(elements, elements);
+						if (complete) {
+							complete.call(elements, elements);
 						}
-
 						if (promiseData) {
 							promiseData.resolver(elements);
 						}
@@ -4126,7 +4850,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
 		});
 
 		return Velocity;
-	}((window.jQuery || window.Zepto || window), window, document);
+	}((window.jQuery || window.Zepto || window), window, (window ? window.document : undefined));
 }));
 
 /******************
@@ -4138,9 +4862,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! VelocityJS
  will produce an inaccurate conversion value. The same issue exists with the cx/cy attributes of SVG circles and ellipses. */
 
 
-/***/ },
+/***/ }),
 /* 4 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 module.exports = function(module) {
 	if(!module.webpackPolyfill) {
@@ -4150,32 +4874,35 @@ module.exports = function(module) {
 		if(!module.children) module.children = [];
 		Object.defineProperty(module, "loaded", {
 			enumerable: true,
-			configurable: false,
-			get: function() { return module.l; }
+			get: function() {
+				return module.l;
+			}
 		});
 		Object.defineProperty(module, "id", {
 			enumerable: true,
-			configurable: false,
-			get: function() { return module.i; }
+			get: function() {
+				return module.i;
+			}
 		});
 		module.webpackPolyfill = 1;
 	}
 	return module;
-}
+};
 
 
-/***/ },
+/***/ }),
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__animations__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__messaging__ = __webpack_require__(1);
-// Importing Cat module synchronously
+// Importing from Animations and Messaging
 
 
 
-// Listener to lazy load Zoo
+// Listener to fire up Merry Xmas
 document.getElementById( 'button' ).addEventListener( 'click', e => {
   if (!this.merryXmas) {
     this.merryXmas = new __WEBPACK_IMPORTED_MODULE_0__animations__["a" /* MerryXmas */]( 'effect' );
@@ -4183,9 +4910,10 @@ document.getElementById( 'button' ).addEventListener( 'click', e => {
   this.merryXmas.animate();
 } );
 
+// Timeout to fire up Alert
 setTimeout(() => {
   new __WEBPACK_IMPORTED_MODULE_1__messaging__["a" /* Alert */]();
 }, 5000);
 
-/***/ }
+/***/ })
 /******/ ]);

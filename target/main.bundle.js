@@ -72,6 +72,9 @@
 /******/ 		script.async = true;
 /******/ 		script.timeout = 120000;
 
+/******/ 		if (__webpack_require__.nc) {
+/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 		}
 /******/ 		script.src = __webpack_require__.p + "" + chunkId + ".bundle.js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
@@ -85,12 +88,14 @@
 /******/ 				installedChunks[chunkId] = undefined;
 /******/ 			}
 /******/ 		};
-/******/ 		head.appendChild(script);
 
 /******/ 		var promise = new Promise(function(resolve, reject) {
 /******/ 			installedChunks[chunkId] = [resolve, reject];
 /******/ 		});
-/******/ 		return installedChunks[chunkId][2] = promise;
+/******/ 		installedChunks[chunkId][2] = promise;
+
+/******/ 		head.appendChild(script);
+/******/ 		return promise;
 /******/ 	};
 
 /******/ 	// expose the modules object (__webpack_modules__)
@@ -99,16 +104,18 @@
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 
-/******/ 	// identity function for calling harmory imports with the correct context
+/******/ 	// identity function for calling harmony imports with the correct context
 /******/ 	__webpack_require__.i = function(value) { return value; };
 
-/******/ 	// define getter function for harmory exports
+/******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		Object.defineProperty(exports, name, {
-/******/ 			configurable: false,
-/******/ 			enumerable: true,
-/******/ 			get: getter
-/******/ 		});
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
 /******/ 	};
 
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -136,11 +143,11 @@
 /******/ ({
 
 /***/ 2:
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 // Listener to lazy load Merry Xmas
 document.getElementById( 'button' ).addEventListener( 'click', e => {
-  __webpack_require__.e/* System.import */(1).then(__webpack_require__.bind(null, 0)).then( Animations => {
+  __webpack_require__.e/* import() */(1).then(__webpack_require__.bind(null, 0)).then( Animations => {
     if (!this.merryXmas) {
       this.merryXmas = new Animations.MerryXmas( 'effect' );
     }
@@ -150,11 +157,11 @@ document.getElementById( 'button' ).addEventListener( 'click', e => {
 
 // Timeout to lazy load Alert
 setTimeout(() => {
-  __webpack_require__.e/* System.import */(0).then(__webpack_require__.bind(null, 1)).then( Messaging => {
+  __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 1)).then( Messaging => {
     new Messaging.Alert();
   } );
 }, 5000);
 
-/***/ }
+/***/ })
 
 /******/ });

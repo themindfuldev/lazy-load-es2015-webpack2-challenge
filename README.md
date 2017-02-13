@@ -3,8 +3,6 @@ Challenge for the talk at http://tiagorg.com/talk-lazy-loading-es2015-modules
 
 Lazy-loading ES2015 modules in the browser with Webpack 2, Babel and System.js
 
-Since webpack 2 is not officially released, we will install the version 2.1.0-beta.27 locally on `node_modules`.
-
 # Usage
 
 - Needs Node 4+.

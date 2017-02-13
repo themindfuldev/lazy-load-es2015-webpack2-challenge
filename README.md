@@ -20,3 +20,4 @@ open http://127.0.0.1:8080/
 - Completely lazy-load *`MerryXmas`* and its dependencies upon click of the "Merry Xmas" button.
 - Completely lazy-load *`Alert`* after 5s the page has been loaded.
 - Verify your lazy-loadable bundles have been generated and are loading properly.
+- Use the [dynamic import() operator](http://www.2ality.com/2017/01/import-operator.html).
